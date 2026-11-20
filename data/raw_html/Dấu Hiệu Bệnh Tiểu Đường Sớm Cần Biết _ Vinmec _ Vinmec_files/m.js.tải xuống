@@ -1,0 +1,16 @@
+/*! AdNet /m.js bootstrap — hash=1e15835e2878 · built=2026-11-12T15:36:15.890Z */
+(function(){
+  var base = window.__VMCM_API_BASE__ || 'https://m.digitalinhouse.net';
+  var s = document.createElement('script');
+  s.src = base + '/m.1e15835e2878.js';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.onerror = function(){
+    var f = document.createElement('script');
+    f.src = base + '/api/v3/loader';
+    f.async = true;
+    f.crossOrigin = 'anonymous';
+    (document.head || document.documentElement).appendChild(f);
+  };
+  (document.head || document.documentElement).appendChild(s);
+})();

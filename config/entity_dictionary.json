@@ -1,0 +1,12 @@
+[
+  {"id": "disease_diabetes", "label": "Disease", "name": "Đái tháo đường", "kind": "disease", "aliases": ["đái tháo đường", "tiểu đường", "bệnh tiểu đường"]},
+  {"id": "disease_type_1_diabetes", "label": "Disease", "name": "Đái tháo đường type 1", "kind": "disease_subtype", "aliases": ["đái tháo đường type 1", "tiểu đường type 1", "đái tháo đường tuýp 1", "tiểu đường tuýp 1"]},
+  {"id": "disease_type_2_diabetes", "label": "Disease", "name": "Đái tháo đường type 2", "kind": "disease_subtype", "aliases": ["đái tháo đường type 2", "tiểu đường type 2", "đái tháo đường tuýp 2", "tiểu đường tuýp 2"]},
+  {"id": "disease_gestational_diabetes", "label": "Disease", "name": "Đái tháo đường thai kỳ", "kind": "disease_subtype", "aliases": ["đái tháo đường thai kỳ", "tiểu đường thai kỳ"]},
+  {"id": "concept_glucose", "label": "Concept", "name": "Glucose", "kind": "analyte", "aliases": ["glucose", "đường huyết"]},
+  {"id": "concept_hba1c", "label": "Concept", "name": "HbA1c", "kind": "laboratory_test", "aliases": ["hba1c", "hb a1c", "hemoglobin a1c"]},
+  {"id": "concept_fasting_glucose", "label": "Concept", "name": "Glucose máu đói", "kind": "laboratory_test", "aliases": ["glucose máu đói", "đường huyết đói"]},
+  {"id": "concept_insulin", "label": "Concept", "name": "Insulin", "kind": "hormone_or_medicine_term", "aliases": ["insulin"]},
+  {"id": "concept_polyuria", "label": "Concept", "name": "Tiểu nhiều", "kind": "symptom", "aliases": ["tiểu nhiều", "đi tiểu nhiều"]},
+  {"id": "concept_polydipsia", "label": "Concept", "name": "Khát nhiều", "kind": "symptom", "aliases": ["khát nhiều"]}
+]

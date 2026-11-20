@@ -1,0 +1,60 @@
+var con_zone_18 = {pcs: [],mbs: [{"id":96,"percent":50,"banner":{"id":24,"wrapper_style":"aGVpZ2h0OjMwMHB4Ow==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[201588]}},{"id":232,"percent":10,"banner":{"id":187,"wrapper_style":"aGVpZ2h0OjMwMHB4Ow==","schedule_on":null,"schedule_off":"2026-08-05T17:00:00.000Z","enable":false,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}}],default_pc: {"id":null,"style":""},default_mb: {"id":null,"style":""},allowed_all: false,allowed_cat: [48,194,193],allowed_posts: [],except_posts: [200331],
+};
+   if (typeof current_category_id === "undefined") {
+  current_category_id = 0;
+}
+if (typeof current_post_id === "undefined") {
+  current_post_id = 0;
+}
+function processBannerSet_18(bannerSet) {
+  return bannerSet.filter((item) => {
+    let removed = false;
+    if (
+      item.banner.allowed_cat.length > 0 &&
+      !item.banner.allowed_cat.includes(current_category_id)
+    ) {
+      removed = true;
+    }
+    if (
+      item.banner.allowed_posts.length > 0 &&
+      item.banner.allowed_posts.includes(current_post_id)
+    ) {
+      removed = false;
+    }
+    if (
+      item.banner.except_posts.length > 0 &&
+      item.banner.except_posts.includes(current_post_id)
+    ) {
+      removed = true;
+    }
+    return !removed;
+  });
+}
+con_zone_18.pcs = processBannerSet_18(con_zone_18.pcs);
+con_zone_18.mbs = processBannerSet_18(con_zone_18.mbs);
+let zone_18_bannerPool = processBanner(
+    con_zone_18.pcs,
+    con_zone_18.mbs,
+    con_zone_18
+  );
+  let zone_18_totalPercent = 0;
+  let zone_18_random = Math.floor(Math.random() * 100);
+  let zone_18_selectedBanner = null;
+  zone_18_bannerPool.forEach((banner) => {
+    zone_18_totalPercent += banner.percent;
+    if (
+      zone_18_random < zone_18_totalPercent &&
+      zone_18_selectedBanner === null
+    ) {
+      zone_18_selectedBanner = banner;
+    }
+  });
+  let zone_18_banner = createCustomIframe(
+    "/banner/" + zone_18_selectedBanner?.banner?.id,
+    zone_18_selectedBanner?.banner.wrapper_style??zone_18_selectedBanner?.banner.style
+  );
+  if (zone_18_bannerPool.length != 0) {
+    document.querySelector("#zone_18")?.appendChild(zone_18_banner);
+  } else {
+    document.querySelector("#zone_18")?.remove();
+  }

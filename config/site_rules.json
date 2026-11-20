@@ -1,0 +1,8 @@
+{
+  "rules": [
+    {"name": "tam_anh", "path_contains": "", "canonical_contains": "tamanhhospital.vn", "content_selector": "section.box_detail", "remove_selectors": ["script", "style", "noscript", ".related-post", ".footer", ".sidebar"]},
+    {"name": "vinmec", "path_contains": "", "canonical_contains": "vinmec.com", "content_selector": "div.post-detail", "remove_selectors": ["script", "style", "noscript", ".related-post", ".footer", ".sidebar"]},
+    {"name": "long_chau", "path_contains": "", "canonical_contains": "nhathuoclongchau.com.vn", "content_selector": "div[class*='posts-detail-container']", "remove_selectors": ["script", "style", "noscript", ".related-post", ".footer", ".sidebar"]}
+  ],
+  "boilerplate_heading_patterns": ["đối tác bảo hiểm", "hệ thống bệnh viện", "hệ thống vinmec", "dịch vụ", "bài viết liên quan", "có thể bạn quan tâm", "hỏi đáp"]
+}
