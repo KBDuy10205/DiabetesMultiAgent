@@ -1,0 +1,55 @@
+var con_zone_47 = {pcs: [{"id":199,"percent":100,"banner":{"id":160,"wrapper_style":"d2lkdGg6MHB4OwpoZWlnaHQ6MHB4Owp2aXNpYmlsaXR5Om5vbmU7Cg==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[23],"except_posts":[]}},{"id":204,"percent":100,"banner":{"id":161,"wrapper_style":"d2lkdGg6MHB4OwpoZWlnaHQ6MHB4Owp2aXNpYmlsaXR5Om5vbmU7Cg==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[61],"except_posts":[]}},{"id":206,"percent":100,"banner":{"id":162,"wrapper_style":"d2lkdGg6MHB4OwpoZWlnaHQ6MHB4Owp2aXNpYmlsaXR5Om5vbmU7Cg==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[63],"except_posts":[]}},{"id":223,"percent":100,"banner":{"id":181,"wrapper_style":"d2lkdGg6MHB4OwpoZWlnaHQ6MHB4Owp2aXNpYmlsaXR5Om5vbmU7Cg==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[51,21],"except_posts":[]}}],mbs: [{"id":200,"percent":100,"banner":{"id":160,"wrapper_style":"d2lkdGg6MHB4OwpoZWlnaHQ6MHB4Owp2aXNpYmlsaXR5Om5vbmU7Cg==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[23],"except_posts":[]}},{"id":205,"percent":100,"banner":{"id":161,"wrapper_style":"d2lkdGg6MHB4OwpoZWlnaHQ6MHB4Owp2aXNpYmlsaXR5Om5vbmU7Cg==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[61],"except_posts":[]}},{"id":207,"percent":100,"banner":{"id":162,"wrapper_style":"d2lkdGg6MHB4OwpoZWlnaHQ6MHB4Owp2aXNpYmlsaXR5Om5vbmU7Cg==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[63],"except_posts":[]}},{"id":224,"percent":100,"banner":{"id":181,"wrapper_style":"d2lkdGg6MHB4OwpoZWlnaHQ6MHB4Owp2aXNpYmlsaXR5Om5vbmU7Cg==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[51,21],"except_posts":[]}}],default_pc: {"id":null,"style":""},default_mb: {"id":null,"style":""},allowed_all: true,allowed_cat: [],allowed_posts: [],except_posts: [],
+};
+   if (typeof current_category_id === "undefined") {
+  current_category_id = 0;
+}
+if (typeof current_post_id === "undefined") {
+  current_post_id = 0;
+}
+function processBannerSet_47(bannerSet) {
+  return bannerSet.filter((item) => {
+    let removed = false;
+    if (
+      item.banner.allowed_cat.length > 0 &&
+      !item.banner.allowed_cat.includes(current_category_id)
+    ) {
+      removed = true;
+    }
+    if (
+      item.banner.allowed_posts.length > 0 &&
+      item.banner.allowed_posts.includes(current_post_id)
+    ) {
+      removed = false;
+    }
+    if (
+      item.banner.except_posts.length > 0 &&
+      item.banner.except_posts.includes(current_post_id)
+    ) {
+      removed = true;
+    }
+    return !removed;
+  });
+}
+con_zone_47.pcs = processBannerSet_47(con_zone_47.pcs);
+con_zone_47.mbs = processBannerSet_47(con_zone_47.mbs);
+let zone_47_bannerPool = processBanner(
+    con_zone_47.pcs,
+    con_zone_47.mbs,
+    con_zone_47
+  );
+  let zone_47_totalPercent = 0;
+  let zone_47_random = Math.floor(Math.random() * 100);
+  let zone_47_selectedBanner = null;
+  zone_47_bannerPool.forEach((banner) => {
+    zone_47_totalPercent += banner.percent;
+    if (
+      zone_47_random < zone_47_totalPercent &&
+      zone_47_selectedBanner === null
+    ) {
+      zone_47_selectedBanner = banner;
+    }
+  });
+  EmbedCustomHTML(
+    "/banner/" + zone_47_selectedBanner?.banner?.id,
+    "#zone_47"
+  );

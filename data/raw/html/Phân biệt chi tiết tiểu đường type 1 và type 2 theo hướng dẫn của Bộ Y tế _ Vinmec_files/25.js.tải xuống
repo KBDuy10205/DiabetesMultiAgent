@@ -1,0 +1,60 @@
+var con_zone_25 = {pcs: [{"id":250,"percent":10,"banner":{"id":207,"wrapper_style":"aGVpZ2h0OjI1MHB4Ow==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[195],"except_posts":[]}},{"id":185,"percent":10,"banner":{"id":80,"wrapper_style":"aGVpZ2h0OjI1MHB4Ow==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}},{"id":244,"percent":10,"banner":{"id":202,"wrapper_style":"aGVpZ2h0OjI1MHB4Ow==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}},{"id":188,"percent":10,"banner":{"id":149,"wrapper_style":"IGhlaWdodDoyNTBweDs=","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}},{"id":201,"percent":10,"banner":{"id":78,"wrapper_style":"IGhlaWdodDoyNTBweDs=","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[23],"except_posts":[]}},{"id":233,"percent":10,"banner":{"id":188,"wrapper_style":"aGVpZ2h0OjI1MHB4Ow==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}}],mbs: [{"id":251,"percent":10,"banner":{"id":208,"wrapper_style":"IGhlaWdodDoxMjBweDs=","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}},{"id":118,"percent":10,"banner":{"id":84,"wrapper_style":"aGVpZ2h0OjEyMHB4Ow==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}},{"id":245,"percent":10,"banner":{"id":201,"wrapper_style":"aGVpZ2h0OjEyMHB4Ow==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}},{"id":141,"percent":10,"banner":{"id":146,"wrapper_style":"IGhlaWdodDoxMjBweDs=","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}},{"id":231,"percent":10,"banner":{"id":189,"wrapper_style":"aGVpZ2h0OjEyMHB4Ow==","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}},{"id":236,"percent":10,"banner":{"id":193,"wrapper_style":"aGVpZ2h0OjEyMHB4Ow==","schedule_on":null,"schedule_off":null,"enable":false,"allowed_posts":[],"allowed_cat":[],"except_posts":[]}}],default_pc: {"id":null,"style":""},default_mb: {"id":null,"style":""},allowed_all: true,allowed_cat: [],allowed_posts: [],except_posts: [],
+};
+   if (typeof current_category_id === "undefined") {
+  current_category_id = 0;
+}
+if (typeof current_post_id === "undefined") {
+  current_post_id = 0;
+}
+function processBannerSet_25(bannerSet) {
+  return bannerSet.filter((item) => {
+    let removed = false;
+    if (
+      item.banner.allowed_cat.length > 0 &&
+      !item.banner.allowed_cat.includes(current_category_id)
+    ) {
+      removed = true;
+    }
+    if (
+      item.banner.allowed_posts.length > 0 &&
+      item.banner.allowed_posts.includes(current_post_id)
+    ) {
+      removed = false;
+    }
+    if (
+      item.banner.except_posts.length > 0 &&
+      item.banner.except_posts.includes(current_post_id)
+    ) {
+      removed = true;
+    }
+    return !removed;
+  });
+}
+con_zone_25.pcs = processBannerSet_25(con_zone_25.pcs);
+con_zone_25.mbs = processBannerSet_25(con_zone_25.mbs);
+let zone_25_bannerPool = processBanner(
+    con_zone_25.pcs,
+    con_zone_25.mbs,
+    con_zone_25
+  );
+  let zone_25_totalPercent = 0;
+  let zone_25_random = Math.floor(Math.random() * 100);
+  let zone_25_selectedBanner = null;
+  zone_25_bannerPool.forEach((banner) => {
+    zone_25_totalPercent += banner.percent;
+    if (
+      zone_25_random < zone_25_totalPercent &&
+      zone_25_selectedBanner === null
+    ) {
+      zone_25_selectedBanner = banner;
+    }
+  });
+  let zone_25_banner = createCustomIframe(
+    "/banner/" + zone_25_selectedBanner?.banner?.id,
+    zone_25_selectedBanner?.banner.wrapper_style??zone_25_selectedBanner?.banner.style
+  );
+  if (zone_25_bannerPool.length != 0) {
+    document.querySelector("#zone_25")?.appendChild(zone_25_banner);
+  } else {
+    document.querySelector("#zone_25")?.remove();
+  }

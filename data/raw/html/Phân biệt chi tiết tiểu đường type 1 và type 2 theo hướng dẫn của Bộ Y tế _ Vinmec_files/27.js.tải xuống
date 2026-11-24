@@ -1,0 +1,60 @@
+var con_zone_27 = {pcs: [{"id":76,"percent":100,"banner":{"id":174,"wrapper_style":"IGhlaWdodDozMzNweDs=","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[188,61],"except_posts":[]}},{"id":217,"percent":100,"banner":{"id":175,"wrapper_style":"IGhlaWdodDozMzNweDs=","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[191,63],"except_posts":[]}},{"id":218,"percent":100,"banner":{"id":176,"wrapper_style":"IGhlaWdodDozMzNweDs=","schedule_on":null,"schedule_off":null,"enable":true,"allowed_posts":[],"allowed_cat":[23,185,87],"except_posts":[]}}],mbs: [],default_pc: {"id":null,"style":""},default_mb: {"id":null,"style":""},allowed_all: true,allowed_cat: [],allowed_posts: [],except_posts: [199512],
+};
+   if (typeof current_category_id === "undefined") {
+  current_category_id = 0;
+}
+if (typeof current_post_id === "undefined") {
+  current_post_id = 0;
+}
+function processBannerSet_27(bannerSet) {
+  return bannerSet.filter((item) => {
+    let removed = false;
+    if (
+      item.banner.allowed_cat.length > 0 &&
+      !item.banner.allowed_cat.includes(current_category_id)
+    ) {
+      removed = true;
+    }
+    if (
+      item.banner.allowed_posts.length > 0 &&
+      item.banner.allowed_posts.includes(current_post_id)
+    ) {
+      removed = false;
+    }
+    if (
+      item.banner.except_posts.length > 0 &&
+      item.banner.except_posts.includes(current_post_id)
+    ) {
+      removed = true;
+    }
+    return !removed;
+  });
+}
+con_zone_27.pcs = processBannerSet_27(con_zone_27.pcs);
+con_zone_27.mbs = processBannerSet_27(con_zone_27.mbs);
+let zone_27_bannerPool = processBanner(
+    con_zone_27.pcs,
+    con_zone_27.mbs,
+    con_zone_27
+  );
+  let zone_27_totalPercent = 0;
+  let zone_27_random = Math.floor(Math.random() * 100);
+  let zone_27_selectedBanner = null;
+  zone_27_bannerPool.forEach((banner) => {
+    zone_27_totalPercent += banner.percent;
+    if (
+      zone_27_random < zone_27_totalPercent &&
+      zone_27_selectedBanner === null
+    ) {
+      zone_27_selectedBanner = banner;
+    }
+  });
+  let zone_27_banner = createCustomIframe(
+    "/banner/" + zone_27_selectedBanner?.banner?.id,
+    zone_27_selectedBanner?.banner.wrapper_style??zone_27_selectedBanner?.banner.style
+  );
+  if (zone_27_bannerPool.length != 0) {
+    document.querySelector("#zone_27")?.appendChild(zone_27_banner);
+  } else {
+    document.querySelector("#zone_27")?.remove();
+  }

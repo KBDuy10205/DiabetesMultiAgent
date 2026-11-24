@@ -1,0 +1,6 @@
+{"aliases": ["glucose", "đường huyết"], "id": "concept_glucose", "kind": "measurement", "label": "Concept", "name": "Glucose"}
+{"aliases": ["hba1c", "hemoglobin a1c"], "id": "concept_hba1c", "kind": "test", "label": "Concept", "name": "HbA1c"}
+{"aliases": ["insulin"], "id": "concept_insulin", "kind": "treatment", "label": "Concept", "name": "Insulin"}
+{"aliases": ["đái tháo đường", "tiểu đường"], "id": "disease_diabetes", "label": "Disease", "name": "Đái tháo đường"}
+{"aliases": ["tiền đái tháo đường", "tiền tiểu đường"], "id": "disease_prediabetes", "label": "Disease", "name": "Tiền đái tháo đường"}
+{"aliases": ["đái tháo đường típ 2", "đái tháo đường type 2", "tiểu đường type 2"], "id": "disease_type_2_diabetes", "label": "Disease", "name": "Đái tháo đường típ 2"}

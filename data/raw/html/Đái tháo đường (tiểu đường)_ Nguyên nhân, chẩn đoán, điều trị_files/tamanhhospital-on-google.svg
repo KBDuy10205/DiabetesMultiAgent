@@ -1,0 +1,52 @@
+<svg width="278" height="29" viewBox="0 0 278 29" fill="none"
+xmlns="http://www.w3.org/2000/svg"
+role="img"
+aria-label="Thêm Bệnh viện Đa khoa Tâm Anh trên Google"
+style="display:block;width:278px;max-width:100%;height:auto">
+
+  <defs>
+    <linearGradient id="googleBorder"
+      x1="0"
+      y1="14.5"
+      x2="278"
+      y2="14.5"
+      gradientUnits="userSpaceOnUse">
+      <stop offset="0.25" stop-color="#FF4745"/>
+      <stop offset="0.40" stop-color="#2F86FE"/>
+      <stop offset="0.55" stop-color="#1BBD4F"/>
+      <stop offset="0.75" stop-color="#FFCF0C"/>
+    </linearGradient>
+  </defs>
+
+  <rect
+    x="0.5"
+    y="0.5"
+    width="277"
+    height="28"
+    rx="14"
+    fill="#FFFFFF"
+    stroke="url(#googleBorder)"
+  />
+
+  <image
+    x="7.28"
+    y="5.38"
+    width="16.85"
+    height="16.85"
+    preserveAspectRatio="xMidYMid meet"
+    href="data:image/png;base64,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"
+  />
+
+  <text
+    x="30"
+    y="18.5"
+    fill="#8B8B8B"
+    font-family="Roboto, Arial, Helvetica, sans-serif"
+    font-size="10"
+    font-style="italic"
+    textLength="237"
+    lengthAdjust="spacingAndGlyphs">
+    Thêm Bệnh viện Đa khoa Tâm Anh trên Google
+  </text>
+
+</svg>

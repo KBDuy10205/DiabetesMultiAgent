@@ -1,8 +1,9 @@
 {
-  "pipeline_version": "1.0.0",
-  "extractor_version": "bs4-lxml-structured-v1",
-  "chunking_version": "blocks-v1",
-  "chunk_max_chars": 1200,
+  "extractor_version": "1.0.0",
+  "chunking_version": "1.0.0",
+  "chunk_target_characters": 1200,
+  "chunk_min_characters": 400,
   "cypher_batch_size": 100,
-  "accepted_review_decision": "accepted_for_demo"
+  "raw_input_directory": "data/raw",
+  "supported_extensions": [".html", ".htm", ".pdf"]
 }

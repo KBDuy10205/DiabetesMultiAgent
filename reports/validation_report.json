@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "No reviewed medical assertions: export contains only sources, chunks, entities and mentions."
+  ],
+  "counts": {
+    "sources": 33,
+    "chunks": 153,
+    "entities": 6,
+    "mentions": 1785,
+    "approved_assertions": 0
+  }
+}

@@ -1,0 +1,40 @@
+@media screen and (max-width: 767px) {
+  .modal-content {
+    width: 90vw;
+  }
+  #modal-call-button .modal-content {
+    width: calc(100vw - 10vw);
+    max-height: 85vh;
+  }
+  .modal-body .phone-number {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  .modal-body .title {
+    color: var(--menu-blue);
+    margin: 10px;
+  }
+  .modal-body .content {
+    padding: 10px;
+  }
+  .modal h4 {
+    margin: 15px;
+  }
+  .modal .button-group {
+    justify-content: space-around;
+    align-items: center;
+  }
+  .modal .button-group button {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 7px;
+    margin: 10px 0px;
+  }
+}
