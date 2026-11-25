@@ -1,0 +1,29 @@
+[
+  {
+    "id": "q01_hba1c_period",
+    "question": "Theo tài liệu, HbA1c phản ánh đường huyết trung bình trong khoảng thời gian nào? A. 24 giờ; B. 2–3 tháng; C. 5 năm.",
+    "gold": "B",
+    "gold_chunk_id": "chunk_c9f812c4a3a2eea3224cb9ba",
+    "gold_source_id": "source_4626512048641a482ecb0f03",
+    "evidence_quote": "HbA1c phản ánh mức đường huyết trung bình trong 2-3 tháng gần nhất.",
+    "source_url": "https://tamanhhospital.vn/benh/dai-thao-duong/"
+  },
+  {
+    "id": "q02_fasting",
+    "question": "Theo tài liệu, xét nghiệm glucose huyết tương lúc đói cần nhịn ăn ít nhất bao lâu? A. 1 giờ; B. 4 giờ; C. 8 giờ.",
+    "gold": "C",
+    "gold_chunk_id": "chunk_1aef8b9b22f89c469532370e",
+    "gold_source_id": "source_0fb6db01949570336b5c2b63",
+    "evidence_quote": "Sau khi nhịn ăn ít nhất 8 tiếng (chỉ uống nước lọc)",
+    "source_url": "https://tamanhhospital.vn/chi-so-tieu-duong-bao-nhieu-thi-nguy-hiem/"
+  },
+  {
+    "id": "q03_symptoms",
+    "question": "Theo tài liệu, nhóm nào được nêu là triệu chứng điển hình của tiểu đường? A. Khát nước nhiều, tiểu nhiều, nhanh đói; B. Đau tai, hắt hơi, chảy mũi; C. Đau răng, ngứa mắt, khàn tiếng.",
+    "gold": "A",
+    "gold_chunk_id": "chunk_1483f0277f4d8639ee394f11",
+    "gold_source_id": "source_fb7113e6c29574f7fadf3def",
+    "evidence_quote": "Khát nước nhiều, tiểu nhiều, nhanh đói là những triệu chứng điển hình của tiểu đường.",
+    "source_url": "https://tamanhhospital.vn/dau-hieu-tieu-duong/"
+  }
+]

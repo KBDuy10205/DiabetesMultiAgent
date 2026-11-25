@@ -16,6 +16,9 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
+rag = ["sentence-transformers>=3.0"]
+web = ["Flask>=3.0"]
+evaluation = ["psutil>=5.9", "matplotlib>=3.7"]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
